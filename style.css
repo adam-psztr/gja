@@ -1,0 +1,440 @@
+:root {
+	--b: #000;
+	--w: #fff;
+	--bg: #f0f0f0;
+	--hb: #0070bd;
+	--bgb: #0089fb;
+	--fcg: #aeaeae;
+	--dis: #d8d8d8;
+	--tcg: #949494;
+	--bef: #42ad74;
+	--lej: #bc954d;
+	--bbr: 5px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	font-size: 10px;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+html, body {
+	height: 100vh;
+}
+
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.tartalom {
+	min-height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-rows: max-content max-content max-content max-content max-content max-content;
+	overflow: hidden;
+	background-color: var(--bg);
+	padding: 0 12px;
+	position: relative;
+}
+
+.header {
+	text-align: center;
+	background-color: var(--hb);
+	color: var(--w);
+	padding-top: 25px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 100%;
+}
+
+.header p {
+	font-size: 1.2rem;
+}
+
+.gjaFelirat p {
+	font-size: 1.6rem;
+	font-weight: bold;
+	margin-top: 50px;
+	padding: 15px 0 10px 0;
+}
+
+.kartya {
+	position: relative;
+	width: 100%;
+	perspective: 100vw;
+	perspective-origin: center;
+	border-radius: var(--bbr);
+}
+
+.gjaAdozo {
+	background-color: var(--bgb);
+	background: linear-gradient(var(--bgb), var(--hb));
+	border-radius: var(--bbr);
+	display: grid;
+	grid-template: max-content max-content max-content max-content max-content max-content/ 1fr;
+	color: var(--w);
+	padding: 35px 10px 25px;
+	align-content: center;
+}
+
+.gjaAdozo p {
+	align-self: center;
+}
+.gjaAdozo p:nth-child(1) {
+	grid-area: 1/1/2/2;
+	text-transform: uppercase;
+}
+
+.gjaAdozo #gjaAdozoNev {
+	grid-area: 2/1/3/2;
+	font-size: 1.75rem;
+	font-weight: bold;
+	text-align: end;
+}
+
+.gjaAdozo p:nth-child(3) {
+	grid-area: 1/1/3/2;
+	font-size: 1.4rem;
+	padding: .35px 5px;
+	border: 2px solid var(--w);
+	border-radius: 50%;
+	display: block;
+	cursor: pointer;
+	justify-self: end;
+	align-self: flex-start;
+	margin-top: -25px;
+}
+
+.gjaAdozo p:nth-child(4) {
+	margin-top: 20px;
+	grid-area: 3/1/4/2;
+	text-transform: uppercase;
+}
+
+.gjaAdozo p:nth-child(5),
+.gjaAdozo p:nth-child(5) span {
+	grid-area: 4/1/5/2;
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: end;
+}
+
+.gjaAdozo p:nth-child(6) {
+	grid-area: 5/1/6/2;
+	text-align: end;
+	text-transform: uppercase;
+	font-size: .9rem;
+}
+
+.fiztetel {
+	margin-top: 15px;
+	text-transform: uppercase;
+	color: var(--fcg);
+	font-size: .9rem;
+	display: none;
+}
+
+.tetel {
+	background-color: var(--w);
+	margin: 10px 0 20px;
+	padding: 10px;
+	border-radius: var(--bbr);
+	box-shadow: 0 0 1px var(--fcg);
+	height: max-content;
+	overflow: hidden;
+	display: none;
+}
+
+.tetelek {
+	cursor: pointer;
+}
+
+.tetel p:first-child {
+	color: var(--tcg);
+	position: relative;
+}
+
+.tetel p:first-child span {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: .9rem;
+	text-align: end;
+}
+
+.tetel > p:nth-child(2) {
+	font-weight: bold;
+}
+
+.tetel .tetelek {
+	border: 1px solid var(--bg);
+	border-radius: 7px;
+	box-shadow: 0 0 1px var(--fcg);
+	display: grid;
+	grid-template: auto max-content / max-content auto max-content;
+	align-items: center;
+	padding: 10px 7px;
+	margin: 15px 0;
+	grid-gap: 3px 5px;
+}
+
+.tetel .tetelek:has( > input:checked ) {
+	border: 1px solid var(--bgb);
+}
+
+.tetel .tetelek input {
+	font-size: 1.5rem;
+	grid-area: 1/1/3/2;
+}
+
+.tetel .tetelek p:nth-child(3) {
+	justify-self: end;
+	font-size: 1.15rem;
+	grid-area: 1/3/4/4;
+}
+
+.tetel .tetelek p:nth-child(3) span {
+	font-size: 1.25rem;
+}
+
+.tetel .tetelek p:nth-child(4) {
+	font-size: .8rem;
+	grid-area: 2/2/2/4;
+}
+
+#reszletlehetosegSzoveg {
+	text-align: center;
+	cursor: pointer;
+	color: var(--tcg);
+	padding: 2px 10px;
+}
+
+#reszletlehetosegSzoveg:hover {
+	color: var(--b);
+	transition: all .3s ease-in-out;
+}
+
+.tetel .reszletlehetoseg {
+	overflow: hidden;
+	height: 0px;
+	transition: all .5s ease-in-out;
+}
+
+.tetel .reszletlehetoseg p {
+	text-align: center;
+	font-size: 1.1rem;
+}
+
+.tetel .valaszlehetosegek {
+	align-items: center;
+}
+
+.tetel .valaszlehetosegek p:first-child,
+.tetel .valaszlehetosegek p:nth-child(2) {
+	padding: 7px 14px;
+	margin: 15px;
+	border-radius: var(--bbr);
+	cursor: pointer;
+	color: var(--bgb);
+	background-color: var(--bg);
+	border: 1px solid var(--bgb);
+}
+
+.tetel .valaszlehetosegek p.aktiv:hover {
+	background-color: var(--hb);
+	transition: all .3s ease-in-out;
+}
+
+.tetel .valaszlehetosegek p:nth-child(2):hover {
+	border-color: var(--hb);
+	color: var(--hb);
+	transition: all .3s ease-in-out;
+}
+
+.tetel .valaszlehetosegek p.aktiv {
+	color: var(--w);
+	background-color: var(--bgb);
+	border: 1px solid var(--hb);
+}
+
+.tetel .valaszlehetosegek p:last-child {
+	color: var(--bgb);
+	font-size: .9rem;
+	cursor: pointer;
+}
+
+.tetel .valaszlehetosegek p:last-child:hover {
+	color: var(--hb);
+	transition: all .3s ease-in-out;
+}
+
+.tetel .reszletlehetoseg select {
+	font-size: 1.5rem;
+	cursor: pointer;
+	margin: 7px 0 5px;
+}
+
+.tetel > p:nth-child(1),
+.tetel > p:nth-child(2) {
+	cursor: pointer;
+}
+
+.fizetek {
+background-color: var(--bgb);
+color: var(--w);
+margin: 20px 0;
+padding: 10px ;
+border-radius: var(--bbr);
+text-align: center;
+font-size: 1.4rem;
+border: none;
+cursor: pointer;
+}
+
+.fizetek:hover {
+	background-color: var(--hb);
+}
+
+.fizetek:disabled {
+	background-color: var(--dis);
+	color: var(--hb);
+	cursor: auto;
+}
+
+.fizetek span {
+font-size: 1.4rem;
+}
+
+.beallitasok label {
+	display: block;
+	margin: 2px;
+	padding: 10px;
+}
+
+.beallitasok input {
+	text-align: end;
+}
+
+.osszesito {
+	background-color: var(--bgb);
+	background: linear-gradient(var(--bgb), var(--hb));
+	border-radius: var(--bbr);
+	display: grid;
+	grid-template: max-content max-content max-content max-content max-content max-content/ auto max-content;
+	color: var(--w);
+	padding: 20px 10px 20px;
+	align-content: center;
+	display: none;
+}
+
+.osszesito p {
+	font-size: .95rem;
+	align-self: center;
+	text-align: end;
+}
+
+.osszesito p:nth-child(1) {
+	grid-area: 1/1/2/2;
+	text-transform: uppercase;
+	text-align: start;
+}
+
+.osszesito p:nth-child(2) {
+	grid-area: 1/2/2/3;
+}
+
+.osszesito p:nth-child(3) {
+	grid-area: 2/2/3/3;
+	font-size: .8rem;
+	margin-bottom: 10px;
+}
+
+.osszesito p:nth-child(4) {
+	grid-area: 3/1/4/2;
+	text-transform: uppercase;
+	text-align: start;
+	align-self: self-end;
+}
+
+.osszesito p:nth-child(5) {
+	grid-area: 3/2/4/3;
+}
+
+.osszesito p:nth-child(6) {
+	grid-area: 4/2/5/3;
+	font-size: .8rem;
+	margin-bottom: 10px;
+}
+
+.osszesito p:nth-child(7) {
+	grid-area: 5/1/6/2;
+	text-transform: uppercase;
+	text-align: start;
+}
+
+.osszesito p:nth-child(8) {
+	grid-area: 5/2/6/3;
+}
+
+.osszesito p:nth-child(9) {
+	grid-area: 6/2/7/3;
+	font-size: .8rem;
+}
+
+.befizetve {
+	color: var(--bef);
+}
+
+.beallitasok button {
+	padding: 10px 20px;
+	border-radius: 10px;
+	background-color: var(--fcg);
+}
+
+.tarolo {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	line-height: 2rem;
+}
+
+.tarolo p {
+	margin: 0 0 20px;
+	font-size: 1.25rem;
+}
+
+.tarolo label {
+	font-size: 1.25rem;
+}
+
+.tarolo button {
+	font-size: 1.25rem;
+}
+
+.tarolo button {
+	margin: 0 0 20px;
+}
+
+code {
+	font-size: 1.2rem;
+	border: 1px solid var(--tcg);
+	padding: 2px;
+	border-radius: 3px;
+	margin-top: 3px;
+	display: inline-block;
+}
