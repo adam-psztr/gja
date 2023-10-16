@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<!-- sets -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<!-- infos -->
+	<meta name="author" content="Pásztor Ádám /adam_psztr/">
+	<!-- webapp -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="theme-color" content="black">
+	<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+	<!-- styles -->
+	<link rel="stylesheet" href="style.css">
+	<!-- title -->
+	<title>NAV-Mobil GJA - 5 havi részletfizetés- koncepció</title>
+</head>
+<body>
+	
+	<div class="tartalom">
+		<div class="header"><p>NAV-Mobil</p></div>
+		<div class="gjaFelirat"><p>Gépjárműadó</p></div>
+		<div class="kartya">
+			<div class="gjaAdozo">
+				<p>Adózó neve</p>
+				<p id="gjaAdozoNev">Nyári Napsugár</p>
+				<p>&#8505;</p>
+				<p>Fizetendő gépjárműadója</p>
+				<p><span id="gjaE">0</span> Ft</p>
+				<p id="osszelojel"></p>
+			</div>
+		</div>
+		<p class="fiztetel">tárgyévi tételek</p>
+		<div class="tetel">
+			<p>Ügyszám<span>részletes <br> információ</span></p>
+			<p>1234567890</p>
+			<div class="tetelekOssz">
+				<label for="egybe1">
+						<div class="tetelek">
+							<input type="checkbox" name="egybe1" id="egybe1" checked onchange="beallRogzitGombInditas()">
+							<p>2024. évi gépjárműadó</p>
+							<p class="kivalaszthatoTetel"><span class="kivalaszthatoOsszeg">0</span> Ft</p>
+							<p class="esedekesseg">Esedékesség: 2024. április 15.</p>
+					</div>
+				</label>
+			</div>
+			<div class="reszletlehetoseg">
+				<p>Nyilatkozom, hogy a gépjárműadót<br>
+				<select name="reszletdb" id="reszletdb">
+					<option value="1">válasszon</option>
+					<option value="2">2 (kettő)</option>
+					<option value="3">3 (három)</option>
+					<option value="4">4 (négy)</option>
+					<option value="5">5 (öt)</option>
+				</select>
+				<br>
+				havi részletben kívánom megfizetni.</p>
+				<!-- <p style="font-size: 7px; margin-top: 7px;">A megerősítés gombbal véglegesíti nyilatkozatát, mely ezután automatizált döntéshozatal útján kerül elbírálásra. <br> Az esedékességi dátumok csak tájékoztató jellegűek.</p> -->
+				<div class="valaszlehetosegek">
+					<p>Megerősítem</p>
+					<p>Mégse</p>
+					<p>résztefizetési kedvezményre <br> vonatkozó tájékoztató</p>
+				</div>
+			</div>
+			<p id="reszletlehetosegSzoveg">részletfizetési lehetőség</p>
+		</div>
+		<div class="kartya">
+			<div class="osszesito">
+				<p>+ Fizetésre kijelölve</p>
+				<p><span>0</span> Ft</p>
+				<p></p>
+				<p>+ Egyenleg</p>
+				<p><span>0</span> Ft</p>
+				<p></p>
+				<p>- Könyvelés folyamatban</p>
+				<p><span>0</span> Ft</p>
+				<p></p>
+			</div>
+		</div>
+		<button disabled class="fizetek">Nincs fizetendő gépjárműadója</button>
+	</div>
+	
+	<script src="script.js"></script>
+</body>
+</html>
