@@ -1,0 +1,11 @@
+{
+  "name": "NAV-GJA",
+  "short_name": "NAV-GJA",
+	"description": "NAV-GJA",
+  "theme_color": "#000",
+  "background_color": "#000",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "./index.html"
+}
